@@ -13,12 +13,12 @@ Happy coding and welcome to the world of AutoSAR basics!
 # Here are the list of modules planned to be developed in this project and their current status in this build
 
 * IO Drivers:
-/ DIO -> Started 
-/ PORT 
-/ PWM  
-/ ICU  
-/ OCU  
-/ ADC  
+/DIO -> Started 
+/PORT 
+/PWM  
+/ICU  
+/OCU  
+/ADC  
 
 * Communication Drivers:
 SPI 
