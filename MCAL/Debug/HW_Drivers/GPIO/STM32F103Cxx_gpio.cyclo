@@ -1,0 +1,3 @@
+../HW_Drivers/GPIO/STM32F103Cxx_gpio.c:12:8:GPIO_ReadInputData	1
+../HW_Drivers/GPIO/STM32F103Cxx_gpio.c:24:8:GPIO_ReadOutputData	1
+../HW_Drivers/GPIO/STM32F103Cxx_gpio.c:35:6:GPIO_Write	1

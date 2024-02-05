@@ -1,4 +1,6 @@
+"./Dio/Dio.o"
+"./HW_Drivers/GPIO/STM32F103Cxx_gpio.o"
 "./Src/main.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
-"./Startup/startup_stm32f407vgtx.o"
+"./Startup/startup_stm32f103c8tx.o"

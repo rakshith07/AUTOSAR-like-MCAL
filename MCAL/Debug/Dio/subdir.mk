@@ -5,29 +5,23 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Src/main.c \
-../Src/syscalls.c \
-../Src/sysmem.c 
+../Dio/Dio.c 
 
 OBJS += \
-./Src/main.o \
-./Src/syscalls.o \
-./Src/sysmem.o 
+./Dio/Dio.o 
 
 C_DEPS += \
-./Src/main.d \
-./Src/syscalls.d \
-./Src/sysmem.d 
+./Dio/Dio.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-Src/%.o Src/%.su Src/%.cyclo: ../Src/%.c Src/subdir.mk
+Dio/%.o Dio/%.su Dio/%.cyclo: ../Dio/%.c Dio/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m3 -std=gnu11 -g3 -c -I"C:/01_Rak_Embd/Embedded-C/My_Workspace/target/STM32Fxxxx_AUTOSAR_MCAL_GIT/MCAL/Inc" -I"C:/01_Rak_Embd/Embedded-C/My_Workspace/target/STM32Fxxxx_AUTOSAR_MCAL_GIT/MCAL/HW_Drivers" -I"C:/01_Rak_Embd/Embedded-C/My_Workspace/target/STM32Fxxxx_AUTOSAR_MCAL_GIT/MCAL/HW_Drivers/GPIO" -I"C:/01_Rak_Embd/Embedded-C/My_Workspace/target/STM32Fxxxx_AUTOSAR_MCAL_GIT/MCAL/Dio" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
 
-clean: clean-Src
+clean: clean-Dio
 
-clean-Src:
-	-$(RM) ./Src/main.cyclo ./Src/main.d ./Src/main.o ./Src/main.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+clean-Dio:
+	-$(RM) ./Dio/Dio.cyclo ./Dio/Dio.d ./Dio/Dio.o ./Dio/Dio.su
 
-.PHONY: clean-Src
+.PHONY: clean-Dio
 

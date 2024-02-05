@@ -1,0 +1,5 @@
+../Dio/Dio.c:32:19:Dio_ReadPort	1
+../Dio/Dio.c:43:6:Dio_WritePort	1
+../Dio/Dio.c:53:15:Dio_ReadChannel	2
+../Dio/Dio.c:71:6:Dio_WriteChannel	2
+../Dio/Dio.c:90:6:Dio_GetVersionInfo	1

@@ -2,11 +2,13 @@
  * Platform_Types.h
  *
  *  Created on: Jan 10, 2024
- *      Author: Rakshith
+ *      Author: Rakshith Guruswamy
  */
 
 #ifndef PLATFORM_TYPES_H_
 #define PLATFORM_TYPES_H_
+
+
 
 	#ifndef TRUE
 		#define TRUE (1 != 0)
@@ -63,5 +65,6 @@
 
 
 
+#include "Std_Types.h"
 
 #endif /* PLATFORM_TYPES_H_ */

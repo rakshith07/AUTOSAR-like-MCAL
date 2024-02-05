@@ -11,6 +11,9 @@ RM := rm -rf
 -include sources.mk
 -include Startup/subdir.mk
 -include Src/subdir.mk
+-include Inc/subdir.mk
+-include HW_Drivers/GPIO/subdir.mk
+-include Dio/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -59,8 +62,8 @@ all: main-build
 main-build: MCAL.elf secondary-outputs
 
 # Tool invocations
-MCAL.elf MCAL.map: $(OBJS) $(USER_OBJS) C:\01_Rak_Embd\Embedded-C\My_Workspace\target\STM32F407\MCAL\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "MCAL.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\01_Rak_Embd\Embedded-C\My_Workspace\target\STM32F407\MCAL\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MCAL.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+MCAL.elf MCAL.map: $(OBJS) $(USER_OBJS) C:\01_Rak_Embd\Embedded-C\My_Workspace\target\STM32Fxxxx_AUTOSAR_MCAL_GIT\MCAL\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "MCAL.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\01_Rak_Embd\Embedded-C\My_Workspace\target\STM32Fxxxx_AUTOSAR_MCAL_GIT\MCAL\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MCAL.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

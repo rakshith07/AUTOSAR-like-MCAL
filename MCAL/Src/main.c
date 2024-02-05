@@ -15,53 +15,31 @@
  *
  ******************************************************************************
  */
-#include "Stm32F407_Regs.h"
-#include "Std_Types.h"
 
-void initIO(void);
+#include "HW_Dependent_header.h"
+#include "Dio.h"
 
 int main(void)
 {
-	initIO();
-    /* Loop forever */
+
+  RCC->APB2ENR |=  RCC_APB2ENR_IOPCEN;
+  GPIOC->CRH   &= ~0xF00000;
+  GPIOC->CRH   |=  0x100000;
+  Dio_ChannelType LightPin = (Dio_ChannelType)45;
 	while(1)
 	{
-		spGPIOD_ODR->pin_12 = Pin_High;
-		spGPIOD_ODR->pin_13 = Pin_Low;
-		spGPIOD_ODR->pin_14 = Pin_High;
-		spGPIOD_ODR->pin_15 = Pin_Low;
-		for(uint32 i=0 ; i < 300000 ; i++ );
-		for(uint32 i=0 ; i < 300000 ; i++ );
-		for(uint32 i=0 ; i < 300000 ; i++ );
-		for(uint32 i=0 ; i < 300000 ; i++ );
-		for(uint32 i=0 ; i < 300000 ; i++ );
-		spGPIOD_ODR->pin_12 = Pin_Low;
-		spGPIOD_ODR->pin_13 = Pin_High;
-		spGPIOD_ODR->pin_14 = Pin_Low;
-		spGPIOD_ODR->pin_15 = Pin_High;
-		for(uint32 i=0 ; i < 300000 ; i++ );
-		for(uint32 i=0 ; i < 300000 ; i++ );
-		for(uint32 i=0 ; i < 300000 ; i++ );
-		for(uint32 i=0 ; i < 300000 ; i++ );
-		for(uint32 i=0 ; i < 300000 ; i++ );
+	(void) Dio_WriteChannel( LightPin, STD_HIGH);
+	for(uint32 i=0 ; i < 300000 ; i++ );
+	for(uint32 i=0 ; i < 300000 ; i++ );
+	for(uint32 i=0 ; i < 300000 ; i++ );
+	(void) Dio_WriteChannel( LightPin, STD_LOW);
+	for(uint32 i=0 ; i < 300000 ; i++ );
+	for(uint32 i=0 ; i < 300000 ; i++ );
+	for(uint32 i=0 ; i < 300000 ; i++ );
+	(void) Dio_WriteChannel( LightPin, STD_HIGH);
+	for(uint32 i=0 ; i < 300000 ; i++ );
+	(void) Dio_WriteChannel( LightPin, STD_LOW);
+	for(uint32 i=0 ; i < 300000 ; i++ );
+
 	}
-
-}
-
-void initIO(void)
-{
-spRCC_AHB1ENR->gpiod_en = 1u;
-
-spGPIOD_MODER->pin_12 = General_Purpose_output_mode;
-spGPIOD_MODER->pin_13 = General_Purpose_output_mode;
-spGPIOD_MODER->pin_14 = General_Purpose_output_mode;
-spGPIOD_MODER->pin_15 = General_Purpose_output_mode;
-spGPIOD_OTYPER->pin_12 = Output_push_pull;
-spGPIOD_OTYPER->pin_13 = Output_push_pull;
-spGPIOD_OTYPER->pin_14 = Output_push_pull;
-spGPIOD_OTYPER->pin_15 = Output_push_pull;
-spGPIOD_PUPDR->pin_12 = Pull_down;
-spGPIOD_PUPDR->pin_13 = Pull_down;
-spGPIOD_PUPDR->pin_14 = Pull_down;
-spGPIOD_PUPDR->pin_15 = Pull_down;
 }

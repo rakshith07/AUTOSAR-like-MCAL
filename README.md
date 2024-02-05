@@ -23,8 +23,9 @@ Happy coding and welcome to the world of AutoSAR basics!
 * Microcontroller Drivers: / MCU Driver / Core Test / Watchdog Driver / GPT Driver /
 
 # Workspace tested currently on the below devices:
-* STM32F407VG  
-* STM32F446RE
+* STM32F103C8T6 (Bluepill board)
+* STM32F103C6T6
 
-
-
+# Workspace to be ported in future also to support the below devices:
+* STM32F446RE (Nucleo Board)
+* STM32F407VG (Discovery Board)
